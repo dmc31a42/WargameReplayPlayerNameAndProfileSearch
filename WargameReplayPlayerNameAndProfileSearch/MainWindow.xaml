@@ -66,7 +66,7 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <Button Content="찾기" Grid.Row="2" Grid.Column="2" Click="Button_Click_3"/>
+        <Button Content="찾기" Grid.Row="2" Grid.Column="2" Click="Button_Click_2"/>
 
         <Label Content="스팀 프로필 아이디로 찾기" Grid.Row="3" Grid.Column="0" />
         <TextBox x:Name="ProfileTextBox" Grid.Row="3" Grid.Column="1" KeyDown="ProfileTextBox_KeyDown"/>
@@ -82,7 +82,7 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <Button Content="찾기" Grid.Row="3" Grid.Column="2" Click="Button_Click_2"/>
+        <Button Content="찾기" Grid.Row="3" Grid.Column="2" Click="Button_Click_3"/>
 
         <DataGrid x:Name="ReplayDataGrid" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" AutoGenerateColumns="False" >
             <DataGrid.Columns>

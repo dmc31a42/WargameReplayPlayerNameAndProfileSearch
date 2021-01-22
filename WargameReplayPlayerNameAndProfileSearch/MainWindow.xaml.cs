@@ -231,7 +231,7 @@ namespace WargameReplayPlayerNameAndProfileSearch
             }
         }
 
-        private void FindFromPlayerUserId()
+        private void FindFromProfile()
         {
             ObservableCollection<ObservableReplay> tempReplayDataGridCollection = new ObservableCollection<ObservableReplay>();
             string ProfileStr = ProfileTextBox.Text;
@@ -239,7 +239,11 @@ namespace WargameReplayPlayerNameAndProfileSearch
             List<Int64> Profiles = new List<long>();
             foreach (string profile in ProfileStrs)
             {
-                Profiles.Add(Int64.Parse(profile));
+                Int64 temp;
+                if(Int64.TryParse(profile, out temp))
+                {
+                    Profiles.Add(temp);
+                }
             }
             List<ReplayInfo> SamePlayernameReplayinfos = new List<ReplayInfo>();
             foreach (Int64 Profile in Profiles)
@@ -271,7 +275,7 @@ namespace WargameReplayPlayerNameAndProfileSearch
             
         }
 
-        void FindFromProfile()
+        void FindFromPlayerUserId()
         {
             ObservableCollection<ObservableReplay> tempReplayDataGridCollection = new ObservableCollection<ObservableReplay>();
             string PlayerUserIdStr = PlayerUserIdTextBox.Text;
