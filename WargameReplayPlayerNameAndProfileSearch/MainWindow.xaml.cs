@@ -209,7 +209,7 @@ namespace WargameReplayPlayerNameAndProfileSearch
                 {
                     foreach (ReplayInfo replayInfo in replayInfos)
                     {
-                        int index = replayInfo.playerInfos.FindIndex(playerinfo => playerinfo.PlayerName.Contains(playerName));
+                        int index = replayInfo.playerInfos.FindIndex(playerinfo => playerinfo.PlayerName.ToLower().Contains(playerName.ToLower()));
                         if (index != -1)
                         {
                             tempReplayDataGridCollection.Add(new ObservableReplay(replayInfo, replayInfo.playerInfos[index]));
