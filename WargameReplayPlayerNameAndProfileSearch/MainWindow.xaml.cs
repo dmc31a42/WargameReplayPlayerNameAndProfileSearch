@@ -205,12 +205,15 @@ namespace WargameReplayPlayerNameAndProfileSearch
             List<ReplayInfo> SamePlayernameReplayinfos = new List<ReplayInfo>();
             foreach (string playerName in playerNames)
             {
-                foreach (ReplayInfo replayInfo in replayInfos)
+                if(!string.IsNullOrWhiteSpace(playerName))
                 {
-                    int index = replayInfo.playerInfos.FindIndex(playerinfo => playerinfo.PlayerName.Contains(playerName));
-                    if (index != -1)
+                    foreach (ReplayInfo replayInfo in replayInfos)
                     {
-                        tempReplayDataGridCollection.Add(new ObservableReplay(replayInfo, replayInfo.playerInfos[index]));
+                        int index = replayInfo.playerInfos.FindIndex(playerinfo => playerinfo.PlayerName.Contains(playerName));
+                        if (index != -1)
+                        {
+                            tempReplayDataGridCollection.Add(new ObservableReplay(replayInfo, replayInfo.playerInfos[index]));
+                        }
                     }
                 }
             }
@@ -283,7 +286,10 @@ namespace WargameReplayPlayerNameAndProfileSearch
             List<int> PlayerUserIds = new List<int>();
             foreach (string PlayerUserId in PlayerUserIdStrs)
             {
-                PlayerUserIds.Add(int.Parse(PlayerUserId));
+                if(!string.IsNullOrWhiteSpace(PlayerUserId))
+                {
+                    PlayerUserIds.Add(int.Parse(PlayerUserId));
+                }
             }
             List<ReplayInfo> SamePlayernameReplayinfos = new List<ReplayInfo>();
             foreach (int PlayerUserId in PlayerUserIds)
